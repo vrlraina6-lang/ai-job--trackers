@@ -7,6 +7,10 @@ where everything stands.
 Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, with
 **SQLite** (`better-sqlite3`) for persistence.
 
+## Demo
+
+[Watch the demo video](https://drive.google.com/file/d/18SM70FLIrtpohZUUnqUZz1GX2ram3cpa/view?usp=drive_link)
+
 ## Features
 
 - **Dashboard** — counts per status (Wishlist, Applied, Interviewing, Offer,
