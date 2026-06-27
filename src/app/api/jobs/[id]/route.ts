@@ -9,7 +9,7 @@ export async function GET(
   ctx: { params: Promise<{ id: string }> },
 ) {
   const { id } = await ctx.params;
-  const job = getJob(id);
+  const job = await getJob(id);
   if (!job) {
     return NextResponse.json({ error: "Job not found." }, { status: 404 });
   }
@@ -34,7 +34,7 @@ export async function PUT(
     return NextResponse.json({ error: parsed.error }, { status: 400 });
   }
 
-  const job = updateJob(id, parsed.data);
+  const job = await updateJob(id, parsed.data);
   if (!job) {
     return NextResponse.json({ error: "Job not found." }, { status: 404 });
   }
@@ -46,7 +46,7 @@ export async function DELETE(
   ctx: { params: Promise<{ id: string }> },
 ) {
   const { id } = await ctx.params;
-  const deleted = deleteJob(id);
+  const deleted = await deleteJob(id);
   if (!deleted) {
     return NextResponse.json({ error: "Job not found." }, { status: 404 });
   }

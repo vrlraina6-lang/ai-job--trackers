@@ -5,7 +5,7 @@ import { parseJobInput } from "@/lib/validation";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  return NextResponse.json(listJobs());
+  return NextResponse.json(await listJobs());
 }
 
 export async function POST(request: Request) {
@@ -21,6 +21,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: parsed.error }, { status: 400 });
   }
 
-  const job = createJob(parsed.data);
+  const job = await createJob(parsed.data);
   return NextResponse.json(job, { status: 201 });
 }
